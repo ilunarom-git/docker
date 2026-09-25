@@ -1,6 +1,6 @@
-service:
+services:
 
-code:
+  code:
     image: lscr.io/linuxserver/code-server:latest
     restart: always
     environment:
