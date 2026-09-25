@@ -237,15 +237,29 @@ Pega aquí el contenido final de tu `docker-compose.yml`:
 | `volumes` (al final del fichero) | |
 
 1. **¿Por qué basta con escribir `db`?**
+   porque es el nombre del servicio que definiste en tu archivo
 2. **¿Sigue instalado WordPress tras `down` y `up`?**
+   Sí, WordPress sigue instalado y no pierdes tus datos, siempre y cuando hayas configurado "volúmenes"
 
 ### Parte 3 · Fase 1
 
-1. **`depends_on`:**
-2. **¿Por qué `db` y no `localhost`?**
+   1. **`depends_on`:**
+    se usa para definir el orden de arranque y apagado de los servicios en Docker Compose.
+   
+1. **¿Por qué `db` y no `localhost`?**
+   No se usa localhost porque, dentro del mundo de Docker, cada contenedor es como una computadora independiente y separada.
+2. 
 
 ### Parte 3 · Fase 2
 
 1. **`PMA_HOST`, `PMA_USER`, `PMA_PASSWORD`:**
+   PMA_HOST: Especifica el nombre del servidor
+
+   PMA_USER: El nombre de usuario
+
+   PMA_PASSWORD: La contraseña
+
 2. **Contenedores recreados:**
+   Los contenedores se recrean cuando Docker detecta que hubo un cambio en la configuración de tu archivo
 3. **Riesgo del login automático:**
+   cualquier persona con acceso a tu red o a tu computadora podrá ver, modificar o borrar toda tu base de datos sin necesidad de saber la contraseña
