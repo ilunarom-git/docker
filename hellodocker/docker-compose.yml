@@ -14,6 +14,15 @@ services:
     volumes:
       - wordpress:/var/www/html
 
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      PMA_ARBITRARY: '1'
+    depends_on:
+      - db
   db:
     image: mysql:8.0
     restart: always
@@ -24,7 +33,6 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - db:/var/lib/mysql
-
 volumes:
   wordpress:
   db:

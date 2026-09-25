@@ -108,7 +108,9 @@ Añade este servicio al `docker-compose.yml`:
     ports:
       - 8081:80
     environment:
-      PMA_ARBITRARY: '1'
+      PMA_HOST: db
+      PMA_USER: exampleuser
+      PMA_PASSWORD: examplepass
     depends_on:
       - db
 ```
